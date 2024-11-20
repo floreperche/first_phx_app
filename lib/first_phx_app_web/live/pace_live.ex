@@ -1,5 +1,6 @@
 defmodule FirstPhxAppWeb.PaceLive do
     use FirstPhxAppWeb, :live_view
+
     
     #mount
     def mount(_params, _session, socket) do
@@ -33,7 +34,7 @@ defmodule FirstPhxAppWeb.PaceLive do
           <div>
             <h2 class="mb-4 text-2xl font-semibold">Result</h2>
             <div>Selected distance: <%= @distance %>km</div>
-            <div>Selected time: <%= @hours %>h<%= @minutes%></div>
+            <div>Selected time: <%= @hours %>h<span :if={@minutes < 10}>0</span><%= @minutes%></div>
             <div>You should run at the following pace: </div>
           </div>
         """
@@ -46,7 +47,8 @@ defmodule FirstPhxAppWeb.PaceLive do
       end
 
       def handle_event("save-minute", %{"minute" => q}, socket) do
-        socket = assign(socket, minutes: q)       
+
+        socket = assign(socket, minutes: String.to_integer(q))       
         {:noreply, socket }
       end
 
