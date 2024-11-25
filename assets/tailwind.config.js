@@ -18,6 +18,8 @@ module.exports = {
         grey: "rgb(30 41 59)",
         primary: "rgb(250 204 21)",
         secondary: "rgb(245 158 11)",
+        orange: "#fc4c02",
+        lightOrange: "#ffb28e",
       },
       fontFamily: {
         zendots: ["Zen Dots", "sans-serif"],
